@@ -1,0 +1,712 @@
+/* =============================================
+   Birthday Card - Stylesheet
+   ============================================= */
+
+/* ---------- CSS Variables & Reset ---------- */
+:root {
+  --card-width: 400px;
+  --card-height: 560px;
+  --card-radius: 24px;
+  --bear-brown: #C4884C;
+  --bear-dark: #A0693A;
+  --bear-belly: #DEBA8A;
+  --panda-white: #F0F0F0;
+  --panda-black: #2D2D2D;
+  --panda-belly: #E5E5E5;
+  --blush-pink: #F4A7B9;
+  --heart-red: #E8556D;
+  --bg-dark: #0f0c29;
+  --bg-mid: #302b63;
+  --bg-light: #24243e;
+  --transition-speed: 0.65s;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Quicksand', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-mid) 50%, var(--bg-light) 100%);
+  position: relative;
+}
+
+/* ---------- Background Particles ---------- */
+#bg-particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bg-heart {
+  position: absolute;
+  font-size: 18px;
+  opacity: 0;
+  animation: floatHeart linear infinite;
+  pointer-events: none;
+}
+
+@keyframes floatHeart {
+  0% {
+    opacity: 0;
+    transform: translateY(100vh) rotate(0deg) scale(0.5);
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10vh) rotate(360deg) scale(1.2);
+  }
+}
+
+.bg-star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0;
+  animation: twinkle ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.1; transform: scale(0.8); }
+  50% { opacity: 0.9; transform: scale(1.3); }
+}
+
+/* ---------- Card Container ---------- */
+.card-container {
+  position: relative;
+  z-index: 10;
+  perspective: 1200px;
+}
+
+.card {
+  position: relative;
+  width: var(--card-width);
+  height: var(--card-height);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(232, 85, 109, 0.15),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px) rotateX(1deg);
+}
+
+.card:active {
+  transform: translateY(-2px) scale(0.995);
+}
+
+/* ---------- Pages ---------- */
+.page {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--card-radius);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(60px) scale(0.96);
+  transition:
+    opacity var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1),
+    transform var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0s linear var(--transition-speed);
+  will-change: transform, opacity;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.page.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0) scale(1);
+  transition:
+    opacity var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1),
+    transform var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0s linear 0s;
+  z-index: 5;
+}
+
+.page.exit-left {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-60px) scale(0.96);
+  z-index: 4;
+}
+
+.page.exit-right {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(60px) scale(0.96);
+  z-index: 4;
+}
+
+/* Page-specific backgrounds */
+.page[data-page="0"] {
+  background: linear-gradient(160deg, #fce4ec 0%, #f8bbd0 40%, #f48fb1 100%);
+}
+.page[data-page="1"] {
+  background: linear-gradient(160deg, #fff3e0 0%, #ffe0b2 40%, #ffcc80 100%);
+}
+.page[data-page="2"] {
+  background: linear-gradient(160deg, #f3e5f5 0%, #e1bee7 40%, #ce93d8 100%);
+}
+.page[data-page="3"] {
+  background: linear-gradient(160deg, #e3f2fd 0%, #bbdefb 40%, #90caf9 100%);
+}
+.page[data-page="4"] {
+  background: linear-gradient(160deg, #fce4ec 0%, #f8bbd0 40%, #ef9a9a 100%);
+}
+.page[data-page="5"] {
+  background: linear-gradient(160deg, #e8f5e9 0%, #c8e6c9 40%, #a5d6a7 100%);
+}
+.page[data-page="6"] {
+  background: linear-gradient(160deg, #fff8e1 0%, #ffecb3 40%, #ffe082 100%);
+}
+
+/* ---------- Page Content ---------- */
+.page-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 24px;
+  position: relative;
+}
+
+/* ---------- Cover Page ---------- */
+.cover-sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.cover-sparkle {
+  position: absolute;
+  font-size: 14px;
+  animation: sparkleFloat 3s ease-in-out infinite;
+}
+
+@keyframes sparkleFloat {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+  50% { transform: translateY(-10px) scale(1.3); opacity: 1; }
+}
+
+.cover-badge {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50px;
+  padding: 8px 20px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #880E4F;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.cover-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 42px;
+  font-weight: 700;
+  color: #880E4F;
+  text-align: center;
+  line-height: 1.2;
+  margin-bottom: 4px;
+  text-shadow: 0 2px 10px rgba(136, 14, 79, 0.15);
+}
+
+.cover-name {
+  font-family: 'Caveat', cursive;
+  font-size: 32px;
+  font-weight: 600;
+  color: #AD1457;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cover-illustration {
+  width: 220px;
+  height: 160px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.cover-illustration svg {
+  width: 100%;
+  height: 100%;
+}
+
+.cover-cta {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #AD1457;
+  animation: pulse 2s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cover-cta .arrow {
+  display: inline-block;
+  animation: bounceRight 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes bounceRight {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(6px); }
+}
+
+/* ---------- Inner Pages ---------- */
+.page-theme-label {
+  font-family: 'Dancing Script', cursive;
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.page[data-page="1"] .page-theme-label { color: #E65100; }
+.page[data-page="2"] .page-theme-label { color: #6A1B9A; }
+.page[data-page="3"] .page-theme-label { color: #1565C0; }
+.page[data-page="4"] .page-theme-label { color: #C62828; }
+.page[data-page="5"] .page-theme-label { color: #2E7D32; }
+.page[data-page="6"] .page-theme-label { color: #F57F17; }
+
+.page-illustration {
+  width: 230px;
+  height: 170px;
+  margin-bottom: 14px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-illustration svg {
+  width: 100%;
+  height: 100%;
+}
+
+.page-image-slot {
+  width: 90%;
+  max-width: 300px;
+  max-height: 120px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  border: 3px dashed rgba(0, 0, 0, 0.1);
+  display: none; /* hidden by default, show when image is added */
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.page-image-slot.has-image {
+  display: flex;
+  border: none;
+}
+
+.page-image-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.page-message {
+  text-align: center;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  max-width: 90%;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-message p {
+  font-family: 'Caveat', cursive;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Page 6 special "always again" styling */
+.page[data-page="6"] .page-message {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.restart-hint {
+  margin-top: 14px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #F57F17;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ---------- Navigation Zones ---------- */
+.nav-zone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: 20;
+  cursor: pointer;
+}
+
+.nav-zone-left {
+  left: 0;
+  cursor: w-resize;
+}
+
+.nav-zone-right {
+  right: 0;
+  cursor: e-resize;
+}
+
+/* Nav arrows (visible on hover) */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #555;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  z-index: 25;
+}
+
+.nav-arrow-left {
+  left: 10px;
+}
+
+.nav-arrow-right {
+  right: 10px;
+}
+
+.card:hover .nav-arrow {
+  opacity: 0.7;
+}
+
+.card:hover .nav-arrow:hover {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* ---------- Page Indicator Dots ---------- */
+.page-indicator {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 7px;
+  z-index: 30;
+}
+
+.page-indicator .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+}
+
+.page-indicator .dot.active {
+  background: rgba(0, 0, 0, 0.45);
+  transform: scale(1.3);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------- Confetti ---------- */
+#confetti-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  opacity: 0;
+  animation: confettiFall 3s ease-out forwards;
+}
+
+@keyframes confettiFall {
+  0% {
+    opacity: 1;
+    transform: translateY(-20px) rotate(0deg) scale(1);
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100vh) rotate(720deg) scale(0.3);
+  }
+}
+
+/* ---------- SVG Character Animations ---------- */
+.char-bounce {
+  animation: charBounce 2s ease-in-out infinite;
+}
+
+@keyframes charBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.char-sway {
+  animation: charSway 3s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+@keyframes charSway {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+
+.char-wiggle {
+  animation: charWiggle 0.6s ease-in-out infinite;
+}
+
+@keyframes charWiggle {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  75% { transform: translateX(3px); }
+}
+
+.heart-float {
+  animation: heartFloat 2.5s ease-in-out infinite;
+}
+
+@keyframes heartFloat {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.8; }
+  50% { transform: translateY(-8px) scale(1.15); opacity: 1; }
+}
+
+.cake-glow {
+  animation: cakeGlow 1.5s ease-in-out infinite;
+}
+
+@keyframes cakeGlow {
+  0%, 100% { filter: drop-shadow(0 0 3px rgba(255, 200, 0, 0.4)); }
+  50% { filter: drop-shadow(0 0 8px rgba(255, 200, 0, 0.8)); }
+}
+
+.lightning-flash {
+  animation: lightningFlash 1.2s ease-in-out infinite;
+}
+
+@keyframes lightningFlash {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.flower-sway {
+  animation: flowerSway 2s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+@keyframes flowerSway {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+.sun-pulse {
+  animation: sunPulse 3s ease-in-out infinite;
+}
+
+@keyframes sunPulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+.infinity-spin {
+  animation: infinitySpin 6s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes infinitySpin {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -200; }
+}
+
+/* ---------- Page Decorations ---------- */
+.page-deco {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.15;
+}
+
+.page-deco-tl {
+  top: -10px;
+  left: -10px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.page-deco-br {
+  bottom: -15px;
+  right: -15px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 440px) {
+  :root {
+    --card-width: 92vw;
+    --card-height: 85vh;
+    --card-radius: 20px;
+  }
+
+  .cover-title {
+    font-size: 34px;
+  }
+
+  .cover-name {
+    font-size: 26px;
+  }
+
+  .page-theme-label {
+    font-size: 22px;
+  }
+
+  .page-illustration {
+    width: 190px;
+    height: 140px;
+  }
+
+  .cover-illustration {
+    width: 180px;
+    height: 130px;
+  }
+
+  .page-message p {
+    font-size: 17px;
+  }
+
+  .page-inner {
+    padding: 24px 18px;
+  }
+}
+
+@media (max-height: 600px) {
+  :root {
+    --card-height: 92vh;
+  }
+
+  .page-illustration,
+  .cover-illustration {
+    width: 160px;
+    height: 110px;
+  }
+
+  .cover-title {
+    font-size: 30px;
+  }
+
+  .page-inner {
+    padding: 16px 14px;
+  }
+}
+
+/* ---------- Tap Ripple Effect ---------- */
+.tap-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(0);
+  animation: ripple 0.6s ease-out forwards;
+  pointer-events: none;
+  z-index: 15;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ---------- Smooth entrance ---------- */
+.card-container {
+  animation: cardEntrance 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes cardEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
