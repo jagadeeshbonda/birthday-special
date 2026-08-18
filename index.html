@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <title>🎂 Birthday Surprise!</title>
-  <meta name="description" content="A special birthday surprise card made with love" />
+  <title>🎂 Happy Birthday Neha! 💕</title>
+  <meta name="description" content="A special 3D fantasy birthday surprise card made with love for Neha" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -16,163 +16,149 @@
 
 <body>
 
-  <!-- Background floating particles -->
+  <!-- Audio Toggle Button -->
+  <button id="musicToggleBtn" class="music-toggle-btn" aria-label="Toggle Romantic Music">
+    <span class="music-icon">🎵</span>
+    <span class="btn-text">Play Music 🎶</span>
+  </button>
+
+  <!-- 3D Particle Canvas Background -->
+  <canvas id="bg-particles-canvas"></canvas>
+
+  <!-- HTML Particle Fallback Layer -->
   <div id="bg-particles"></div>
 
-  <!-- Card -->
+  <!-- Cute Corner Peeking Panda Mascot -->
+  <div class="peeking-panda-corner" id="peekingPanda" title="Click me for a surprise!">
+    <div class="peeking-panda-speech" id="peekingSpeech">I Love You Neha! 💖</div>
+    <svg class="peeking-panda-svg" viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="32" fill="#FFFFFF" />
+      <circle cx="20" cy="22" r="13" fill="#2A2A38" />
+      <circle cx="80" cy="22" r="13" fill="#2A2A38" />
+      <circle cx="20" cy="22" r="5" fill="#FF9EAA" opacity="0.4" />
+      <circle cx="80" cy="22" r="5" fill="#FF9EAA" opacity="0.4" />
+      <ellipse cx="35" cy="45" rx="10" ry="9" fill="#2A2A38" />
+      <ellipse cx="65" cy="45" rx="10" ry="9" fill="#2A2A38" />
+      <circle cx="35" cy="43" r="4" fill="#fff" />
+      <circle cx="65" cy="43" r="4" fill="#fff" />
+      <circle cx="36" cy="42" r="2" fill="#2A2A38" />
+      <circle cx="66" cy="42" r="2" fill="#2A2A38" />
+      <circle cx="26" cy="55" r="6" fill="#FF9EAA" opacity="0.65" />
+      <circle cx="74" cy="55" r="6" fill="#FF9EAA" opacity="0.65" />
+      <ellipse cx="50" cy="52" rx="4.5" ry="3" fill="#2A2A38" />
+      <path d="M 40 58 Q 50 66 60 58" stroke="#555" fill="none" stroke-width="2.2" stroke-linecap="round" />
+      <g transform="translate(18, 14) scale(0.6)">
+        <path d="M0 -10 Q5 -4 0 10 Q-5 -4 0 -10" fill="#FFFDF0" />
+        <path d="M-10 0 Q-4 5 10 0 Q-4 -5 -10 0" fill="#F8BBD0" />
+        <circle cx="0" cy="0" r="2" fill="#FFD54F" />
+      </g>
+    </svg>
+  </div>
+
+  <!-- Card Container -->
   <div class="card-container">
     <div class="card" id="birthdayCard">
 
-      <!-- Navigation zones (invisible, over the card) -->
-      <div class="nav-zone nav-zone-left" id="navLeft"></div>
-      <div class="nav-zone nav-zone-right" id="navRight"></div>
+      <!-- Navigation Zones -->
+      <div class="nav-zone nav-zone-left" id="navLeft" title="Previous Page"></div>
+      <div class="nav-zone nav-zone-right" id="navRight" title="Next Page"></div>
 
-      <!-- Navigation arrows -->
+      <!-- Navigation Arrows -->
       <div class="nav-arrow nav-arrow-left">‹</div>
       <div class="nav-arrow nav-arrow-right">›</div>
 
-      <!-- Page indicator dots -->
-      <div class="page-indicator" id="pageIndicator">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-      </div>
+      <!-- 13 Dynamic Page Indicator Dots -->
+      <div class="page-indicator" id="pageIndicator"></div>
 
       <!-- ================================== -->
       <!-- PAGE 0 : COVER                    -->
       <!-- ================================== -->
       <div class="page active" data-page="0" id="page-0">
         <div class="page-inner">
-          <!-- Sparkle decorations -->
           <div class="cover-sparkles">
-            <span class="cover-sparkle" style="top:8%;left:12%;animation-delay:0s">✨</span>
-            <span class="cover-sparkle" style="top:5%;right:15%;animation-delay:0.6s">🌟</span>
-            <span class="cover-sparkle" style="top:18%;left:6%;animation-delay:1.2s">💫</span>
-            <span class="cover-sparkle" style="top:14%;right:8%;animation-delay:0.3s">⭐</span>
-            <span class="cover-sparkle" style="bottom:22%;left:10%;animation-delay:0.9s">✨</span>
-            <span class="cover-sparkle" style="bottom:18%;right:12%;animation-delay:1.5s">🌟</span>
+            <span class="cover-sparkle" style="top:8%;left:10%;animation-delay:0s">✨</span>
+            <span class="cover-sparkle" style="top:5%;right:12%;animation-delay:0.6s">🌸</span>
+            <span class="cover-sparkle" style="top:16%;left:6%;animation-delay:1.2s">💫</span>
+            <span class="cover-sparkle" style="top:12%;right:8%;animation-delay:0.3s">⭐</span>
+            <span class="cover-sparkle" style="bottom:20%;left:8%;animation-delay:0.9s">💖</span>
+            <span class="cover-sparkle" style="bottom:16%;right:10%;animation-delay:1.5s">💮</span>
           </div>
 
-          <div class="cover-badge">🎉 Special Day 🎉</div>
+          <div class="cover-badge">🎉 Neha's Special Day 🎉</div>
 
-          <h1 class="cover-title">Happy Birthday!</h1>
-          <h2 class="cover-name">~ Nehaa ~</h2>
+          <h1 class="cover-title shimmer-text">Happy Birthday!</h1>
+          <h2 class="cover-name">~ Neha ~</h2>
 
-          <!-- Bear & Panda with birthday cake -->
           <div class="cover-illustration">
-            <svg viewBox="0 0 240 170" xmlns="http://www.w3.org/2000/svg">
-              <!-- Ground shadow -->
-              <ellipse cx="120" cy="158" rx="100" ry="8" fill="rgba(0,0,0,0.06)" />
+            <svg viewBox="0 0 240 175" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="120" cy="162" rx="105" ry="8" fill="rgba(0,0,0,0.07)" />
 
-              <!-- === BEAR (left) === -->
-              <g class="char-bounce" style="animation-delay: 0s">
-                <!-- Body -->
+              <g class="char-bounce">
                 <ellipse cx="65" cy="132" rx="22" ry="20" fill="#C4884C" />
                 <ellipse cx="65" cy="135" rx="15" ry="13" fill="#DEBA8A" />
-                <!-- Left arm (reaching toward cake) -->
                 <ellipse cx="85" cy="125" rx="7" ry="12" fill="#B07840" transform="rotate(25,85,125)" />
-                <!-- Right arm -->
                 <ellipse cx="45" cy="125" rx="7" ry="12" fill="#B07840" transform="rotate(-15,45,125)" />
-                <!-- Legs -->
                 <ellipse cx="55" cy="150" rx="8" ry="6" fill="#B07840" />
                 <ellipse cx="75" cy="150" rx="8" ry="6" fill="#B07840" />
-                <!-- Head -->
                 <circle cx="65" cy="98" r="22" fill="#C4884C" />
-                <!-- Ears -->
                 <circle cx="46" cy="80" r="9" fill="#C4884C" />
                 <circle cx="46" cy="80" r="5.5" fill="#A0693A" />
                 <circle cx="84" cy="80" r="9" fill="#C4884C" />
                 <circle cx="84" cy="80" r="5.5" fill="#A0693A" />
-                <!-- Eyes -->
                 <circle cx="56" cy="95" r="3" fill="#2D2D2D" />
                 <circle cx="74" cy="95" r="3" fill="#2D2D2D" />
                 <circle cx="57" cy="94" r="1.2" fill="#fff" />
                 <circle cx="75" cy="94" r="1.2" fill="#fff" />
-                <!-- Blush -->
                 <circle cx="50" cy="101" r="4" fill="#F4A7B9" opacity="0.4" />
                 <circle cx="80" cy="101" r="4" fill="#F4A7B9" opacity="0.4" />
-                <!-- Nose -->
                 <ellipse cx="65" cy="100" rx="3.5" ry="2.5" fill="#5D3A1A" />
-                <!-- Happy mouth -->
                 <path d="M 58 104 Q 65 110 72 104" stroke="#5D3A1A" fill="none" stroke-width="1.5"
                   stroke-linecap="round" />
-                <!-- Party hat -->
-                <polygon points="65,68 55,84 75,84" fill="#FF7043" opacity="0.9" />
-                <polygon points="65,68 60,78 70,78" fill="#FFD54F" opacity="0.8" />
+                <polygon points="65,68 55,84 75,84" fill="#FF7043" />
                 <circle cx="65" cy="67" r="3" fill="#FFD54F" />
               </g>
 
-              <!-- === BIRTHDAY CAKE (center) === -->
-              <g class="cake-glow">
-                <!-- Cake base -->
-                <rect x="102" y="128" width="36" height="24" rx="4" fill="#FFCC80" />
-                <rect x="102" y="128" width="36" height="12" rx="4" fill="#FFE0B2" />
-                <!-- Frosting -->
-                <path d="M 102 134 Q 108 128 114 134 Q 120 128 126 134 Q 132 128 138 134" stroke="#F8BBD0" fill="none"
-                  stroke-width="2.5" stroke-linecap="round" />
-                <!-- Candle -->
-                <rect x="117" y="112" width="5" height="18" rx="2" fill="#E8556D" />
-                <rect x="117" y="112" width="5" height="8" rx="2" fill="#FF8A80" />
-                <!-- Flame -->
-                <ellipse cx="119.5" cy="108" rx="4" ry="6" fill="#FFD54F" opacity="0.9" />
-                <ellipse cx="119.5" cy="107" rx="2" ry="4" fill="#FFF9C4" opacity="0.9" />
+              <g class="candle-sparkle">
+                <rect x="102" y="130" width="36" height="24" rx="4" fill="#FFCC80" />
+                <rect x="102" y="130" width="36" height="12" rx="4" fill="#FFE0B2" />
+                <path d="M 102 136 Q 108 130 114 136 Q 120 130 126 136 Q 132 130 138 136" stroke="#F8BBD0" fill="none"
+                  stroke-width="2.5" />
+                <rect x="117" y="114" width="5" height="18" rx="2" fill="#E8556D" />
+                <ellipse cx="119.5" cy="109" rx="4" ry="6" fill="#FFD54F" class="candle-flame" />
+                <path d="M 120 125 Q 125 118 130 125 Q 125 132 120 125 Z" fill="#FFFDF0" />
+                <path d="M 120 125 Q 115 118 110 125 Q 115 132 120 125 Z" fill="#F8BBD0" />
               </g>
 
-              <!-- === PANDA (right) === -->
               <g class="char-bounce" style="animation-delay: 0.3s">
-                <!-- Body -->
-                <ellipse cx="175" cy="132" rx="22" ry="20" fill="#F0F0F0" />
-                <ellipse cx="175" cy="135" rx="15" ry="13" fill="#E0E0E0" />
-                <!-- Left arm (reaching toward cake) -->
-                <ellipse cx="155" cy="125" rx="7" ry="12" fill="#2D2D2D" transform="rotate(-25,155,125)" />
-                <!-- Right arm -->
-                <ellipse cx="195" cy="125" rx="7" ry="12" fill="#2D2D2D" transform="rotate(15,195,125)" />
-                <!-- Legs -->
-                <ellipse cx="165" cy="150" rx="8" ry="6" fill="#2D2D2D" />
-                <ellipse cx="185" cy="150" rx="8" ry="6" fill="#2D2D2D" />
-                <!-- Head -->
-                <circle cx="175" cy="98" r="22" fill="#F5F5F5" />
-                <!-- Ears -->
-                <circle cx="156" cy="80" r="9" fill="#2D2D2D" />
-                <circle cx="194" cy="80" r="9" fill="#2D2D2D" />
-                <!-- Eye patches -->
-                <ellipse cx="166" cy="95" rx="8" ry="7" fill="#2D2D2D" />
-                <ellipse cx="184" cy="95" rx="8" ry="7" fill="#2D2D2D" />
-                <!-- Eyes -->
+                <ellipse cx="175" cy="132" rx="22" ry="20" fill="#FFFFFF" />
+                <ellipse cx="175" cy="135" rx="15" ry="13" fill="#F0F0F0" />
+                <ellipse cx="155" cy="125" rx="7" ry="12" fill="#2A2A38" transform="rotate(-25,155,125)" />
+                <ellipse cx="195" cy="125" rx="7" ry="12" fill="#2A2A38" transform="rotate(15,195,125)" />
+                <ellipse cx="165" cy="150" rx="8" ry="6" fill="#2A2A38" />
+                <ellipse cx="185" cy="150" rx="8" ry="6" fill="#2A2A38" />
+                <circle cx="175" cy="98" r="22" fill="#FFFFFF" />
+                <circle cx="156" cy="80" r="9" fill="#2A2A38" />
+                <circle cx="194" cy="80" r="9" fill="#2A2A38" />
+                <ellipse cx="166" cy="95" rx="8" ry="7" fill="#2A2A38" />
+                <ellipse cx="184" cy="95" rx="8" ry="7" fill="#2A2A38" />
                 <circle cx="166" cy="95" r="3" fill="#fff" />
                 <circle cx="184" cy="95" r="3" fill="#fff" />
-                <circle cx="167" cy="94.5" r="1.8" fill="#2D2D2D" />
-                <circle cx="185" cy="94.5" r="1.8" fill="#2D2D2D" />
-                <circle cx="167.5" cy="93.8" r="0.8" fill="#fff" />
-                <circle cx="185.5" cy="93.8" r="0.8" fill="#fff" />
-                <!-- Blush -->
-                <circle cx="160" cy="102" r="4" fill="#FFB6C1" opacity="0.4" />
-                <circle cx="190" cy="102" r="4" fill="#FFB6C1" opacity="0.4" />
-                <!-- Nose -->
-                <ellipse cx="175" cy="100" rx="3" ry="2.2" fill="#2D2D2D" />
-                <!-- Happy mouth -->
+                <circle cx="167" cy="94.5" r="1.8" fill="#2A2A38" />
+                <circle cx="185" cy="94.5" r="1.8" fill="#2A2A38" />
+                <circle cx="160" cy="102" r="4" fill="#FF9EAA" opacity="0.5" />
+                <circle cx="190" cy="102" r="4" fill="#FF9EAA" opacity="0.5" />
+                <ellipse cx="175" cy="100" rx="3" ry="2.2" fill="#2A2A38" />
                 <path d="M 168 104 Q 175 110 182 104" stroke="#555" fill="none" stroke-width="1.5"
                   stroke-linecap="round" />
-                <!-- Party hat -->
-                <polygon points="175,68 165,84 185,84" fill="#7E57C2" opacity="0.9" />
-                <polygon points="175,68 170,78 180,78" fill="#CE93D8" opacity="0.8" />
-                <circle cx="175" cy="67" r="3" fill="#CE93D8" />
+                <polygon points="175,68 165,84 185,84" fill="#E91E63" />
+                <circle cx="175" cy="67" r="3" fill="#FFD54F" />
               </g>
 
-              <!-- Floating hearts above -->
-              <g class="heart-float">
-                <text x="95" y="65" font-size="14" fill="#E8556D" opacity="0.7">♥</text>
-              </g>
-              <g class="heart-float" style="animation-delay:0.8s">
-                <text x="140" y="58" font-size="11" fill="#F48FB1" opacity="0.6">♥</text>
-              </g>
-              <g class="heart-float" style="animation-delay:1.4s">
-                <text x="118" y="50" font-size="16" fill="#E8556D" opacity="0.5">♥</text>
-              </g>
+              <g class="petal-float"><text x="95" y="62" font-size="14" fill="#E8556D">🌸</text></g>
+              <g class="petal-float" style="animation-delay:0.8s"><text x="140" y="55" font-size="12"
+                  fill="#F8BBD0">💮</text></g>
+              <g class="heart-float" style="animation-delay:1.4s"><text x="118" y="48" font-size="16"
+                  fill="#FF4081">💖</text></g>
             </svg>
           </div>
 
@@ -184,9 +170,198 @@
       </div>
 
       <!-- ================================== -->
-      <!-- PAGE 1 : OUR SILLY FIGHTS         -->
+      <!-- PAGE 1 : BIRTHDAY WISH 1           -->
       <!-- ================================== -->
       <div class="page" data-page="1" id="page-1">
+        <div class="page-inner">
+          <p class="page-theme-label">To My Princess Neha 🌸👑</p>
+
+          <div class="page-illustration">
+            <svg viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="120" cy="162" rx="95" ry="7" fill="rgba(0,0,0,0.06)" />
+
+              <g class="char-sway">
+                <g transform="translate(10, 0)">
+                  <ellipse cx="65" cy="132" rx="20" ry="18" fill="#C4884C" />
+                  <circle cx="65" cy="98" r="20" fill="#C4884C" />
+                  <circle cx="50" cy="82" r="8" fill="#C4884C" />
+                  <circle cx="80" cy="82" r="8" fill="#C4884C" />
+                  <circle cx="58" cy="95" r="3" fill="#2D2D2D" />
+                  <circle cx="72" cy="95" r="3" fill="#2D2D2D" />
+                  <path d="M 60 102 Q 65 107 70 102" stroke="#5D3A1A" fill="none" stroke-width="1.5" />
+                  <path d="M 80 110 L 95 125" stroke="#81C784" stroke-width="3" />
+                  <path d="M 95 110 Q 102 100 108 110 Q 102 120 95 110 Z" fill="#FFFDF0" />
+                  <path d="M 95 110 Q 88 100 82 110 Q 88 120 95 110 Z" fill="#F8BBD0" />
+                  <circle cx="95" cy="110" r="3" fill="#FFD54F" />
+                </g>
+
+                <g transform="translate(20, 0)" class="interactive-tap">
+                  <ellipse cx="150" cy="132" rx="20" ry="18" fill="#FFFFFF" />
+                  <circle cx="150" cy="98" r="20" fill="#FFFFFF" />
+                  <circle cx="134" cy="82" r="8" fill="#2A2A38" />
+                  <circle cx="166" cy="82" r="8" fill="#2A2A38" />
+                  <ellipse cx="143" cy="95" rx="6" ry="5" fill="#2A2A38" />
+                  <ellipse cx="157" cy="95" rx="6" ry="5" fill="#2A2A38" />
+                  <circle cx="143" cy="95" r="2.2" fill="#fff" />
+                  <circle cx="157" cy="95" r="2.2" fill="#fff" />
+                  <circle cx="138" cy="101" r="4" fill="#FF9EAA" opacity="0.6" />
+                  <circle cx="162" cy="101" r="4" fill="#FF9EAA" opacity="0.6" />
+                  <path d="M 144 102 Q 150 108 156 102" stroke="#555" fill="none" stroke-width="1.5" />
+                  <polygon points="140,75 145,63 150,72 155,63 160,75" fill="#FFD54F" stroke="#FFA000" stroke-width="1"
+                    class="crown-sparkle" />
+                  <circle cx="145" cy="62" r="2" fill="#E91E63" />
+                  <circle cx="155" cy="62" r="2" fill="#E91E63" />
+                  <circle cx="150" cy="71" r="1.8" fill="#FFF" />
+                </g>
+              </g>
+
+              <text x="110" y="50" font-size="16" class="petal-float">👑</text>
+              <text x="70" y="60" font-size="14" class="petal-float" style="animation-delay:0.5s">🌸</text>
+              <text x="170" y="55" font-size="14" class="petal-float" style="animation-delay:1s">💖</text>
+            </svg>
+          </div>
+
+          <div class="page-message">
+            <p>Happy Birthday to the most precious girl in my universe, Neha 💖! Your smile is my daily dose of
+              happiness and your love is my greatest blessing. May your birthday be as sweet, lovely, and enchanting as
+              you are! 👑✨</p>
+          </div>
+
+          <p class="interactive-tap-hint interactive-tap">✨ Tap crown to send birthday love! ✨</p>
+
+          <div class="page-deco page-deco-tl"></div>
+          <div class="page-deco page-deco-br"></div>
+        </div>
+      </div>
+
+      <!-- ================================== -->
+      <!-- PAGE 2 : BIRTHDAY WISH 2           -->
+      <!-- ================================== -->
+      <div class="page" data-page="2" id="page-2">
+        <div class="page-inner">
+          <p class="page-theme-label dark-theme-text">A Wish Written in the Stars 🌠✨</p>
+
+          <div class="page-illustration">
+            <svg viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+              <g class="moon-float">
+                <path d="M 150 25 A 60 60 0 1 0 190 135 A 50 50 0 1 1 150 25 Z" fill="#FFE082" opacity="0.9"
+                  filter="drop-shadow(0 0 12px #ffd54f)" />
+              </g>
+
+              <circle cx="40" cy="30" r="2" fill="#fff" class="cover-sparkle" />
+              <circle cx="80" cy="45" r="1.5" fill="#fff" class="cover-sparkle" style="animation-delay:0.5s" />
+              <circle cx="210" cy="40" r="2.5" fill="#fff" class="cover-sparkle" style="animation-delay:1s" />
+
+              <g class="char-sway" style="animation-delay:0.3s">
+                <ellipse cx="105" cy="115" rx="16" ry="15" fill="#C4884C" />
+                <circle cx="105" cy="88" r="15" fill="#C4884C" />
+                <circle cx="92" cy="76" r="6" fill="#C4884C" />
+                <circle cx="118" cy="76" r="6" fill="#C4884C" />
+                <path d="M 100 92 Q 105 96 110 92" stroke="#5D3A1A" fill="none" stroke-width="1.2" />
+
+                <ellipse cx="132" cy="115" rx="16" ry="15" fill="#FFFFFF" />
+                <circle cx="132" cy="88" r="15" fill="#FFFFFF" />
+                <circle cx="120" cy="76" r="6" fill="#2A2A38" />
+                <circle cx="144" cy="76" r="6" fill="#2A2A38" />
+                <ellipse cx="126" cy="86" rx="5" ry="4" fill="#2A2A38" />
+                <ellipse cx="138" cy="86" rx="5" ry="4" fill="#2A2A38" />
+                <circle cx="126" cy="86" r="1.8" fill="#fff" />
+                <circle cx="138" cy="86" r="1.8" fill="#fff" />
+                <circle cx="123" cy="91" r="3" fill="#FF9EAA" opacity="0.6" />
+                <circle cx="141" cy="91" r="3" fill="#FF9EAA" opacity="0.6" />
+
+                <g class="lantern-rise interactive-tap" transform="translate(60, 45)">
+                  <rect x="0" y="0" width="28" height="36" rx="6" fill="#FFB74D" opacity="0.9" />
+                  <rect x="4" y="4" width="20" height="28" rx="4" fill="#FFE082" />
+                  <text x="14" y="22" font-size="10" font-family="'Caveat', cursive" fill="#D84315" text-anchor="middle"
+                    font-weight="bold">Neha</text>
+                  <ellipse cx="14" cy="34" rx="4" ry="2" fill="#FF9800" />
+                </g>
+              </g>
+
+              <text x="45" y="110" font-size="12" class="petal-float" fill="#F8BBD0">💮</text>
+              <text x="175" y="130" font-size="14" class="petal-float" style="animation-delay:0.7s"
+                fill="#FFFDF0">🌸</text>
+            </svg>
+          </div>
+
+          <div class="page-message dark-card-message">
+            <p>Every single star in the sky tonight shines just for you, Neha ✨. Nu navvithe na prapancham antha
+              veligipothundhi... My biggest wish is to see you smiling forever and ever. Happy Birthday my love! 🌌💕
+            </p>
+          </div>
+
+          <div class="page-deco page-deco-tl"></div>
+          <div class="page-deco page-deco-br"></div>
+        </div>
+      </div>
+
+      <!-- ================================== -->
+      <!-- PAGE 3 : BIRTHDAY WISH 3           -->
+      <!-- ================================== -->
+      <div class="page" data-page="3" id="page-3">
+        <div class="page-inner">
+          <p class="page-theme-label">Sweetest Birthday Wishes & Promises 🎂🌸</p>
+
+          <div class="page-illustration">
+            <svg viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="120" cy="162" rx="90" ry="7" fill="rgba(0,0,0,0.06)" />
+
+              <g class="char-bounce">
+                <ellipse cx="70" cy="130" rx="18" ry="16" fill="#C4884C" />
+                <circle cx="70" cy="98" r="18" fill="#C4884C" />
+                <circle cx="56" cy="83" r="7" fill="#C4884C" />
+                <circle cx="84" cy="83" r="7" fill="#C4884C" />
+                <circle cx="64" cy="95" r="2.5" fill="#2D2D2D" />
+                <circle cx="76" cy="95" r="2.5" fill="#2D2D2D" />
+                <path d="M 64 101 Q 70 106 76 101" stroke="#5D3A1A" fill="none" stroke-width="1.4" />
+                <path d="M 85 115 L 110 115" stroke="#B07840" stroke-width="4" stroke-linecap="round" />
+
+                <g class="interactive-tap">
+                  <path d="M 120 135 C 105 115, 95 140, 120 155 C 145 140, 135 115, 120 135 Z" fill="#F8BBD0" />
+                  <path d="M 120 135 Q 125 125 130 135 Q 125 145 120 135 Z" fill="#FFFDF0" />
+                  <path d="M 120 135 Q 115 125 110 135 Q 115 145 120 135 Z" fill="#FFFDF0" />
+                  <circle cx="120" cy="135" r="3" fill="#FFD54F" />
+                  <rect x="118" y="115" width="4" height="15" fill="#FF4081" />
+                  <ellipse cx="120" cy="110" rx="3" ry="5" fill="#FFD54F" class="candle-flame" />
+                </g>
+
+                <ellipse cx="170" cy="130" rx="18" ry="16" fill="#FFFFFF" />
+                <circle cx="170" cy="98" r="18" fill="#FFFFFF" />
+                <circle cx="156" cy="83" r="7" fill="#2A2A38" />
+                <circle cx="184" cy="83" r="7" fill="#2A2A38" />
+                <ellipse cx="163" cy="95" rx="6" ry="5" fill="#2A2A38" />
+                <ellipse cx="177" cy="95" rx="6" ry="5" fill="#2A2A38" />
+                <circle cx="163" cy="95" r="2.2" fill="#fff" />
+                <circle cx="177" cy="95" r="2.2" fill="#fff" />
+                <circle cx="158" cy="101" r="3.5" fill="#FF9EAA" opacity="0.6" />
+                <circle cx="182" cy="101" r="3.5" fill="#FF9EAA" opacity="0.6" />
+                <path d="M 164 101 Q 170 106 176 101" stroke="#555" fill="none" stroke-width="1.4" />
+                <path d="M 155 115 L 130 115" stroke="#2A2A38" stroke-width="4" stroke-linecap="round" />
+              </g>
+
+              <text x="113" y="112" font-size="12" class="heart-float" fill="#E91E63">💖</text>
+              <text x="50" y="60" font-size="14" class="petal-float">🌸</text>
+              <text x="180" y="60" font-size="14" class="petal-float" style="animation-delay:0.6s">💮</text>
+            </svg>
+          </div>
+
+          <div class="page-message">
+            <p>Nu pakana unte chalu Neha, ordinary moments turn into pure magic ✨. On this special day, I promise to
+              care for you, cherish you, and hold your hand through everything. Happy Birthday my sweet panda! 🎂💕</p>
+          </div>
+
+          <p class="interactive-tap-hint interactive-tap">🎂 Tap cake to blow candle sparkler! 🎂</p>
+
+          <div class="page-deco page-deco-tl"></div>
+          <div class="page-deco page-deco-br"></div>
+        </div>
+      </div>
+
+      <!-- ================================== -->
+      <!-- PAGE 4 : OUR SILLY FIGHTS          -->
+      <!-- ================================== -->
+      <div class="page" data-page="4" id="page-4">
         <div class="page-inner">
           <p class="page-theme-label">missing Our Silly Little Fights 😤</p>
 
@@ -194,90 +369,58 @@
             <svg viewBox="0 0 240 170" xmlns="http://www.w3.org/2000/svg">
               <ellipse cx="120" cy="158" rx="90" ry="7" fill="rgba(0,0,0,0.05)" />
 
-              <!-- === BEAR (left, facing right, arms up) === -->
               <g class="char-wiggle">
                 <ellipse cx="70" cy="132" rx="20" ry="18" fill="#C4884C" />
                 <ellipse cx="70" cy="134" rx="13" ry="11" fill="#DEBA8A" />
-                <!-- Arms up (fighting pose) -->
                 <ellipse cx="90" cy="110" rx="6" ry="11" fill="#B07840" transform="rotate(35,90,110)" />
                 <ellipse cx="50" cy="112" rx="6" ry="11" fill="#B07840" transform="rotate(-30,50,112)" />
-                <!-- Legs -->
                 <ellipse cx="60" cy="148" rx="7" ry="5" fill="#B07840" />
                 <ellipse cx="80" cy="148" rx="7" ry="5" fill="#B07840" />
-                <!-- Head -->
                 <circle cx="70" cy="100" r="20" fill="#C4884C" />
-                <!-- Ears -->
                 <circle cx="53" cy="84" r="8" fill="#C4884C" />
-                <circle cx="53" cy="84" r="5" fill="#A0693A" />
                 <circle cx="87" cy="84" r="8" fill="#C4884C" />
-                <circle cx="87" cy="84" r="5" fill="#A0693A" />
-                <!-- Angry-cute eyes (> <) -->
                 <line x1="60" y1="94" x2="65" y2="97" stroke="#2D2D2D" stroke-width="2.5" stroke-linecap="round" />
                 <line x1="65" y1="94" x2="60" y2="97" stroke="#2D2D2D" stroke-width="2.5" stroke-linecap="round" />
                 <line x1="75" y1="94" x2="80" y2="97" stroke="#2D2D2D" stroke-width="2.5" stroke-linecap="round" />
                 <line x1="80" y1="94" x2="75" y2="97" stroke="#2D2D2D" stroke-width="2.5" stroke-linecap="round" />
-                <!-- Puffed cheek -->
                 <circle cx="55" cy="103" r="5" fill="#F4A7B9" opacity="0.5" />
                 <circle cx="85" cy="103" r="5" fill="#F4A7B9" opacity="0.5" />
-                <!-- Nose -->
-                <ellipse cx="70" cy="101" rx="3" ry="2" fill="#5D3A1A" />
-                <!-- Pouty mouth -->
-                <path d="M 64 106 Q 70 103 76 106" stroke="#5D3A1A" fill="none" stroke-width="1.5"
-                  stroke-linecap="round" />
+                <path d="M 64 106 Q 70 103 76 106" stroke="#5D3A1A" fill="none" stroke-width="1.5" />
               </g>
 
-              <!-- Lightning bolt between them -->
               <g class="lightning-flash">
                 <polygon points="118,78 123,92 117,92 122,108 114,94 120,94 115,78" fill="#FFD54F" stroke="#FFA000"
                   stroke-width="0.8" />
               </g>
-              <!-- Comic stars -->
-              <text x="108" y="75" font-size="12" class="lightning-flash" style="animation-delay:0.4s">💢</text>
-              <text x="128" y="110" font-size="10" class="lightning-flash" style="animation-delay:0.7s">💢</text>
+              <text x="108" y="75" font-size="12" class="lightning-flash">💢</text>
 
-              <!-- === PANDA (right, facing left, arms up) === -->
               <g class="char-wiggle" style="animation-delay:0.15s">
-                <ellipse cx="170" cy="132" rx="20" ry="18" fill="#F0F0F0" />
-                <ellipse cx="170" cy="134" rx="13" ry="11" fill="#E0E0E0" />
-                <!-- Arms up -->
-                <ellipse cx="150" cy="110" rx="6" ry="11" fill="#2D2D2D" transform="rotate(-35,150,110)" />
-                <ellipse cx="190" cy="112" rx="6" ry="11" fill="#2D2D2D" transform="rotate(30,190,112)" />
-                <!-- Legs -->
-                <ellipse cx="160" cy="148" rx="7" ry="5" fill="#2D2D2D" />
-                <ellipse cx="180" cy="148" rx="7" ry="5" fill="#2D2D2D" />
-                <!-- Head -->
-                <circle cx="170" cy="100" r="20" fill="#F5F5F5" />
-                <!-- Ears -->
-                <circle cx="153" cy="84" r="8" fill="#2D2D2D" />
-                <circle cx="187" cy="84" r="8" fill="#2D2D2D" />
-                <!-- Eye patches -->
-                <ellipse cx="162" cy="97" rx="7" ry="6" fill="#2D2D2D" />
-                <ellipse cx="178" cy="97" rx="7" ry="6" fill="#2D2D2D" />
-                <!-- Angry-cute eyes -->
+                <ellipse cx="170" cy="132" rx="20" ry="18" fill="#FFFFFF" />
+                <ellipse cx="170" cy="134" rx="13" ry="11" fill="#F0F0F0" />
+                <ellipse cx="150" cy="110" rx="6" ry="11" fill="#2A2A38" transform="rotate(-35,150,110)" />
+                <ellipse cx="190" cy="112" rx="6" ry="11" fill="#2A2A38" transform="rotate(30,190,112)" />
+                <ellipse cx="160" cy="148" rx="7" ry="5" fill="#2A2A38" />
+                <ellipse cx="180" cy="148" rx="7" ry="5" fill="#2A2A38" />
+                <circle cx="170" cy="100" r="20" fill="#FFFFFF" />
+                <circle cx="153" cy="84" r="8" fill="#2A2A38" />
+                <circle cx="187" cy="84" r="8" fill="#2A2A38" />
+                <ellipse cx="162" cy="97" rx="7" ry="6" fill="#2A2A38" />
+                <ellipse cx="178" cy="97" rx="7" ry="6" fill="#2A2A38" />
                 <line x1="159" y1="94" x2="164" y2="97" stroke="#fff" stroke-width="2.5" stroke-linecap="round" />
                 <line x1="164" y1="94" x2="159" y2="97" stroke="#fff" stroke-width="2.5" stroke-linecap="round" />
                 <line x1="175" y1="94" x2="180" y2="97" stroke="#fff" stroke-width="2.5" stroke-linecap="round" />
                 <line x1="180" y1="94" x2="175" y2="97" stroke="#fff" stroke-width="2.5" stroke-linecap="round" />
-                <!-- Puffed cheeks -->
-                <circle cx="155" cy="104" r="5" fill="#FFB6C1" opacity="0.45" />
-                <circle cx="185" cy="104" r="5" fill="#FFB6C1" opacity="0.45" />
-                <!-- Nose -->
-                <ellipse cx="170" cy="101" rx="2.5" ry="2" fill="#2D2D2D" />
-                <!-- Pouty mouth -->
-                <path d="M 164 106 Q 170 103 176 106" stroke="#555" fill="none" stroke-width="1.5"
-                  stroke-linecap="round" />
+                <circle cx="155" cy="104" r="5" fill="#FF9EAA" opacity="0.5" />
+                <circle cx="185" cy="104" r="5" fill="#FF9EAA" opacity="0.5" />
+                <path d="M 164 106 Q 170 103 176 106" stroke="#555" fill="none" stroke-width="1.5" />
               </g>
             </svg>
           </div>
 
-          <div class="page-image-slot" id="image-slot-1">
-            <!-- Add image: <img src="your-image.jpg" alt=""> and add class "has-image" to parent -->
-          </div>
-
           <div class="page-message">
-            <p>missing our silliest fights😕, kasepu natho godava padthava, thidthava thittu, kodthava kottu, kani duram
-              undaku..because making up with you is the sweetest
-              part! 💕,</p>
+            <p>missing our silliest fights😕, kasepu natho godava padochu gaa, thidthava thittu, kodthava kottu, kani
+              duram
+              undaku..because making up with you is the sweetest part! 💕</p>
           </div>
 
           <div class="page-deco page-deco-tl"></div>
@@ -286,112 +429,45 @@
       </div>
 
       <!-- ================================== -->
-      <!-- PAGE 2 : OUR COZY CUDDLES          -->
+      <!-- PAGE 5 : OUR COZY CUDDLES          -->
       <!-- ================================== -->
-      <div class="page" data-page="2" id="page-2">
+      <div class="page" data-page="5" id="page-5">
         <div class="page-inner">
-          <p class="page-theme-label">can wee just🫂?? </p>
+          <p class="page-theme-label">can wee just🫂??</p>
 
           <div class="page-illustration">
             <svg viewBox="0 0 240 170" xmlns="http://www.w3.org/2000/svg">
               <ellipse cx="120" cy="158" rx="90" ry="7" fill="rgba(0,0,0,0.05)" />
-
-              <!-- Couch / blanket -->
               <rect x="55" y="130" width="130" height="28" rx="14" fill="#D1C4E9" opacity="0.6" />
-              <rect x="60" y="126" width="120" height="18" rx="10" fill="#E1BEE7" opacity="0.5" />
 
-              <!-- === BEAR (left, arm around panda) === -->
               <g class="char-sway">
-                <!-- Body -->
                 <ellipse cx="95" cy="128" rx="22" ry="20" fill="#C4884C" />
-                <ellipse cx="95" cy="130" rx="15" ry="13" fill="#DEBA8A" />
-                <!-- Right arm (around panda) -->
-                <ellipse cx="120" cy="118" rx="6" ry="14" fill="#B07840" transform="rotate(20,120,118)" />
-                <!-- Left arm -->
-                <ellipse cx="75" cy="125" rx="6" ry="11" fill="#B07840" transform="rotate(-10,75,125)" />
-                <!-- Legs (tucked) -->
-                <ellipse cx="85" cy="146" rx="8" ry="5" fill="#B07840" />
-                <ellipse cx="105" cy="146" rx="8" ry="5" fill="#B07840" />
-                <!-- Head -->
                 <circle cx="95" cy="95" r="21" fill="#C4884C" />
-                <!-- Ears -->
                 <circle cx="78" cy="78" r="8" fill="#C4884C" />
-                <circle cx="78" cy="78" r="5" fill="#A0693A" />
                 <circle cx="112" cy="78" r="8" fill="#C4884C" />
-                <circle cx="112" cy="78" r="5" fill="#A0693A" />
-                <!-- Closed happy eyes (arcs) -->
-                <path d="M 84 92 Q 88 88 92 92" stroke="#2D2D2D" fill="none" stroke-width="2" stroke-linecap="round" />
-                <path d="M 98 92 Q 102 88 106 92" stroke="#2D2D2D" fill="none" stroke-width="2"
-                  stroke-linecap="round" />
-                <!-- Blush -->
-                <circle cx="82" cy="98" r="4" fill="#F4A7B9" opacity="0.45" />
-                <circle cx="108" cy="98" r="4" fill="#F4A7B9" opacity="0.45" />
-                <!-- Nose -->
-                <ellipse cx="95" cy="96" rx="3" ry="2" fill="#5D3A1A" />
-                <!-- Happy smile -->
-                <path d="M 88 100 Q 95 107 102 100" stroke="#5D3A1A" fill="none" stroke-width="1.5"
-                  stroke-linecap="round" />
+                <path d="M 84 92 Q 88 88 92 92" stroke="#2D2D2D" fill="none" stroke-width="2" />
+                <path d="M 98 92 Q 102 88 106 92" stroke="#2D2D2D" fill="none" stroke-width="2" />
+
+                <ellipse cx="145" cy="130" rx="20" ry="18" fill="#FFFFFF" />
+                <circle cx="140" cy="97" r="20" fill="#FFFFFF" />
+                <circle cx="124" cy="82" r="8" fill="#2A2A38" />
+                <circle cx="158" cy="82" r="8" fill="#2A2A38" />
+                <ellipse cx="132" cy="94" rx="7" ry="6" fill="#2A2A38" />
+                <ellipse cx="150" cy="94" rx="7" ry="6" fill="#2A2A38" />
+                <path d="M 128 93 Q 132 89 136 93" stroke="#fff" fill="none" stroke-width="2" />
+                <path d="M 146 93 Q 150 89 154 93" stroke="#fff" fill="none" stroke-width="2" />
               </g>
 
-              <!-- === PANDA (right, leaning into bear) === -->
-              <g class="char-sway" style="animation-delay:0.5s">
-                <!-- Body -->
-                <ellipse cx="145" cy="130" rx="20" ry="18" fill="#F0F0F0" />
-                <ellipse cx="145" cy="132" rx="13" ry="11" fill="#E0E0E0" />
-                <!-- Arms (tucked in) -->
-                <ellipse cx="130" cy="124" rx="6" ry="10" fill="#2D2D2D" transform="rotate(-15,130,124)" />
-                <ellipse cx="160" cy="126" rx="6" ry="10" fill="#2D2D2D" transform="rotate(10,160,126)" />
-                <!-- Legs -->
-                <ellipse cx="135" cy="146" rx="7" ry="5" fill="#2D2D2D" />
-                <ellipse cx="155" cy="146" rx="7" ry="5" fill="#2D2D2D" />
-                <!-- Head (tilted toward bear) -->
-                <circle cx="140" cy="97" r="20" fill="#F5F5F5" />
-                <!-- Ears -->
-                <circle cx="124" cy="82" r="8" fill="#2D2D2D" />
-                <circle cx="158" cy="82" r="8" fill="#2D2D2D" />
-                <!-- Eye patches -->
-                <ellipse cx="132" cy="94" rx="7" ry="6" fill="#2D2D2D" />
-                <ellipse cx="150" cy="94" rx="7" ry="6" fill="#2D2D2D" />
-                <!-- Closed happy eyes -->
-                <path d="M 128 93 Q 132 89 136 93" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" />
-                <path d="M 146 93 Q 150 89 154 93" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" />
-                <!-- Blush -->
-                <circle cx="126" cy="101" r="4" fill="#FFB6C1" opacity="0.45" />
-                <circle cx="156" cy="101" r="4" fill="#FFB6C1" opacity="0.45" />
-                <!-- Nose -->
-                <ellipse cx="141" cy="98" rx="2.5" ry="2" fill="#2D2D2D" />
-                <!-- Happy smile -->
-                <path d="M 135 102 Q 141 108 147 102" stroke="#555" fill="none" stroke-width="1.5"
-                  stroke-linecap="round" />
-              </g>
-
-              <!-- Floating hearts -->
-              <g class="heart-float"><text x="105" y="60" font-size="14" fill="#E8556D" opacity="0.8">♥</text></g>
-              <g class="heart-float" style="animation-delay:0.6s"><text x="125" y="52" font-size="11" fill="#F48FB1"
-                  opacity="0.6">♥</text></g>
-              <g class="heart-float" style="animation-delay:1.2s"><text x="115" y="68" font-size="9" fill="#E8556D"
-                  opacity="0.5">♥</text></g>
-              <g class="heart-float" style="animation-delay:0.9s"><text x="138" y="62" font-size="12" fill="#CE93D8"
-                  opacity="0.6">♥</text></g>
-
-              <!-- Z Z Z (sleepy) -->
-              <text x="155" y="75" font-size="10" fill="#9575CD" opacity="0.5" class="heart-float"
-                style="animation-delay:0.3s">z</text>
-              <text x="162" y="68" font-size="13" fill="#9575CD" opacity="0.4" class="heart-float"
-                style="animation-delay:0.7s">z</text>
-              <text x="170" y="58" font-size="16" fill="#9575CD" opacity="0.3" class="heart-float"
-                style="animation-delay:1.1s">z</text>
+              <g class="petal-float"><text x="105" y="60" font-size="14" fill="#E8556D">🌸</text></g>
+              <text x="160" y="68" font-size="13" fill="#9575CD" opacity="0.6" class="heart-float">z</text>
             </svg>
           </div>
 
-          <div class="page-image-slot" id="image-slot-2"></div>
-
           <div class="page-message">
-            <p>i know things have been difficult lately, but i know we can push through together, can we just talk
-              things out!!, this is my pleasing request❤️‍🩹🧸,
-              i know nu entha overthink chesthavo, i know how senstive you are, anduke i won't give up on you, i will
-              try atleast thousand times..just to make you understand!.. whatever may happen i will stay with you, so
-              please let me be neha..</p>
+            <p>i know things have been difficult lately, but i know we can pull this together, can we just talk
+              things out!!, this is my pleasing request❤️‍🩹🧸, i know nu entha overthink chesthavo, i know how senstive
+              you are, anduke i won't give up on you, i will try atleast thousand times..just to make you understand!..
+              whatever may happen i will stay with you, so please let me be neha..</p>
           </div>
 
           <div class="page-deco page-deco-tl"></div>
@@ -400,9 +476,9 @@
       </div>
 
       <!-- ================================== -->
-      <!-- PAGE 3 : OUR LITTLE SORRYS         -->
+      <!-- PAGE 6 : MY LITTLE PLEA            -->
       <!-- ================================== -->
-      <div class="page" data-page="3" id="page-3">
+      <div class="page" data-page="6" id="page-6">
         <div class="page-inner">
           <p class="page-theme-label">My Little Plea 🥺</p>
 
@@ -410,110 +486,40 @@
             <svg viewBox="0 0 240 170" xmlns="http://www.w3.org/2000/svg">
               <ellipse cx="120" cy="158" rx="90" ry="7" fill="rgba(0,0,0,0.05)" />
 
-              <!-- === BEAR (left, offering flower) === -->
               <g class="char-sway">
-                <!-- Body -->
                 <ellipse cx="75" cy="132" rx="20" ry="18" fill="#C4884C" />
-                <ellipse cx="75" cy="134" rx="13" ry="11" fill="#DEBA8A" />
-                <!-- Left arm (down) -->
-                <ellipse cx="57" cy="128" rx="6" ry="11" fill="#B07840" transform="rotate(-10,57,128)" />
-                <!-- Right arm (holding flower out) -->
-                <ellipse cx="98" cy="115" rx="6" ry="13" fill="#B07840" transform="rotate(40,98,115)" />
-                <!-- Legs -->
-                <ellipse cx="65" cy="148" rx="7" ry="5" fill="#B07840" />
-                <ellipse cx="85" cy="148" rx="7" ry="5" fill="#B07840" />
-                <!-- Head -->
                 <circle cx="75" cy="100" r="20" fill="#C4884C" />
-                <!-- Ears -->
                 <circle cx="58" cy="84" r="8" fill="#C4884C" />
-                <circle cx="58" cy="84" r="5" fill="#A0693A" />
                 <circle cx="92" cy="84" r="8" fill="#C4884C" />
-                <circle cx="92" cy="84" r="5" fill="#A0693A" />
-                <!-- Worried eyes (round, eyebrows up) -->
                 <circle cx="67" cy="97" r="3" fill="#2D2D2D" />
                 <circle cx="83" cy="97" r="3" fill="#2D2D2D" />
-                <circle cx="68" cy="96" r="1.2" fill="#fff" />
-                <circle cx="84" cy="96" r="1.2" fill="#fff" />
-                <!-- Worried eyebrows -->
-                <line x1="62" y1="89" x2="70" y2="91" stroke="#5D3A1A" stroke-width="1.8" stroke-linecap="round" />
-                <line x1="88" y1="89" x2="80" y2="91" stroke="#5D3A1A" stroke-width="1.8" stroke-linecap="round" />
-                <!-- Blush (stronger - embarrassed) -->
-                <circle cx="62" cy="103" r="5" fill="#F4A7B9" opacity="0.55" />
-                <circle cx="88" cy="103" r="5" fill="#F4A7B9" opacity="0.55" />
-                <!-- Nose -->
-                <ellipse cx="75" cy="100" rx="3" ry="2" fill="#5D3A1A" />
-                <!-- Wobbly sorry mouth -->
-                <path d="M 69 106 Q 75 108 81 106" stroke="#5D3A1A" fill="none" stroke-width="1.5"
-                  stroke-linecap="round" />
-                <!-- Sweat drop -->
-                <ellipse cx="92" cy="92" rx="2" ry="3" fill="#90CAF9" opacity="0.6" />
+                <path d="M 98 115 L 115 100" stroke="#81C784" stroke-width="3" />
+                <circle cx="115" cy="95" r="5" fill="#FFFDF0" />
+                <circle cx="120" cy="95" r="5" fill="#F8BBD0" />
+                <circle cx="117" cy="95" r="3" fill="#FFD54F" />
               </g>
 
-              <!-- === FLOWER (being offered) === -->
-              <g class="flower-sway">
-                <!-- Stem -->
-                <line x1="113" y1="100" x2="113" y2="120" stroke="#66BB6A" stroke-width="2.5" stroke-linecap="round" />
-                <!-- Leaf -->
-                <ellipse cx="108" cy="112" rx="5" ry="3" fill="#81C784" transform="rotate(-20,108,112)" />
-                <!-- Petals -->
-                <circle cx="113" cy="93" r="5" fill="#F48FB1" opacity="0.8" />
-                <circle cx="108" cy="97" r="5" fill="#F48FB1" opacity="0.8" />
-                <circle cx="118" cy="97" r="5" fill="#F48FB1" opacity="0.8" />
-                <circle cx="110" cy="101" r="5" fill="#F48FB1" opacity="0.8" />
-                <circle cx="116" cy="101" r="5" fill="#F48FB1" opacity="0.8" />
-                <!-- Center -->
-                <circle cx="113" cy="97" r="4" fill="#FFD54F" />
-              </g>
-
-              <!-- Small hearts near flower -->
-              <g class="heart-float" style="animation-delay:0.2s"><text x="105" y="82" font-size="8" fill="#F48FB1"
-                  opacity="0.6">♥</text></g>
-              <g class="heart-float" style="animation-delay:0.8s"><text x="120" y="78" font-size="6" fill="#E8556D"
-                  opacity="0.5">♥</text></g>
-
-              <!-- === PANDA (right, looking away but smiling) === -->
               <g class="char-sway" style="animation-delay: 0.4s">
-                <!-- Body -->
-                <ellipse cx="165" cy="132" rx="20" ry="18" fill="#F0F0F0" />
-                <ellipse cx="165" cy="134" rx="13" ry="11" fill="#E0E0E0" />
-                <!-- Arms (crossed, looking away) -->
-                <ellipse cx="150" cy="122" rx="6" ry="11" fill="#2D2D2D" transform="rotate(-20,150,122)" />
-                <ellipse cx="180" cy="122" rx="6" ry="11" fill="#2D2D2D" transform="rotate(20,180,122)" />
-                <!-- Legs -->
-                <ellipse cx="155" cy="148" rx="7" ry="5" fill="#2D2D2D" />
-                <ellipse cx="175" cy="148" rx="7" ry="5" fill="#2D2D2D" />
-                <!-- Head (slightly turned away) -->
-                <circle cx="168" cy="100" r="20" fill="#F5F5F5" />
-                <!-- Ears -->
-                <circle cx="152" cy="84" r="8" fill="#2D2D2D" />
-                <circle cx="186" cy="84" r="8" fill="#2D2D2D" />
-                <!-- Eye patches -->
-                <ellipse cx="160" cy="97" rx="7" ry="6" fill="#2D2D2D" />
-                <ellipse cx="178" cy="97" rx="7" ry="6" fill="#2D2D2D" />
-                <!-- Eyes (looking sideways at bear) -->
+                <ellipse cx="165" cy="132" rx="20" ry="18" fill="#FFFFFF" />
+                <circle cx="168" cy="100" r="20" fill="#FFFFFF" />
+                <circle cx="152" cy="84" r="8" fill="#2A2A38" />
+                <circle cx="186" cy="84" r="8" fill="#2A2A38" />
+                <ellipse cx="160" cy="97" rx="7" ry="6" fill="#2A2A38" />
+                <ellipse cx="178" cy="97" rx="7" ry="6" fill="#2A2A38" />
                 <circle cx="158" cy="97" r="3" fill="#fff" />
                 <circle cx="176" cy="97" r="3" fill="#fff" />
-                <circle cx="157" cy="96.5" r="1.8" fill="#2D2D2D" />
-                <circle cx="175" cy="96.5" r="1.8" fill="#2D2D2D" />
-                <circle cx="157.5" cy="96" r="0.8" fill="#fff" />
-                <circle cx="175.5" cy="96" r="0.8" fill="#fff" />
-                <!-- Blush (softened) -->
-                <circle cx="153" cy="103" r="4" fill="#FFB6C1" opacity="0.45" />
-                <circle cx="183" cy="103" r="4" fill="#FFB6C1" opacity="0.45" />
-                <!-- Nose -->
-                <ellipse cx="168" cy="100" rx="2.5" ry="2" fill="#2D2D2D" />
-                <!-- Secret smile -->
-                <path d="M 163 104 Q 168 109 173 105" stroke="#555" fill="none" stroke-width="1.5"
-                  stroke-linecap="round" />
+                <circle cx="153" cy="103" r="4" fill="#FF9EAA" opacity="0.6" />
+                <circle cx="183" cy="103" r="4" fill="#FF9EAA" opacity="0.6" />
+                <path d="M 163 104 Q 168 109 173 105" stroke="#555" fill="none" stroke-width="1.5" />
               </g>
+
+              <g class="petal-float"><text x="105" y="78" font-size="12" fill="#F8BBD0">💮</text></g>
             </svg>
           </div>
 
-          <div class="page-image-slot" id="image-slot-3"></div>
-
           <div class="page-message">
             <p>Mana first meet maybe antha best lekapovachu, but trust me i will make things better for you😕, ila
-              distant ga undadam em bale ra, nene niku chala heavy feelings ichina, dhanni correct cheskune chance
+              distant ga undadam em bale neha, i know you felt heavy cause of me, dhanni correct cheskune chance
               isthava, please💟!!. I'm sorryy for everything neha... and I'd say it a thousand times just to see you
               smile again 🌸</p>
           </div>
@@ -524,9 +530,9 @@
       </div>
 
       <!-- ================================== -->
-      <!-- PAGE 4 : OUR WARM HUGS             -->
+      <!-- PAGE 7 : OUR WARM HUGS             -->
       <!-- ================================== -->
-      <div class="page" data-page="4" id="page-4">
+      <div class="page" data-page="7" id="page-7">
         <div class="page-inner">
           <p class="page-theme-label">can we just🫂??</p>
 
@@ -534,93 +540,35 @@
             <svg viewBox="0 0 240 170" xmlns="http://www.w3.org/2000/svg">
               <ellipse cx="120" cy="158" rx="80" ry="7" fill="rgba(0,0,0,0.05)" />
 
-              <!-- === BEAR & PANDA HUGGING (merged together) === -->
               <g class="char-sway">
-                <!-- Bear body (left) -->
                 <ellipse cx="108" cy="132" rx="22" ry="20" fill="#C4884C" />
-                <ellipse cx="108" cy="134" rx="14" ry="12" fill="#DEBA8A" />
-                <!-- Panda body (right, overlapping) -->
-                <ellipse cx="132" cy="132" rx="22" ry="20" fill="#F0F0F0" />
-                <ellipse cx="132" cy="134" rx="14" ry="12" fill="#E0E0E0" />
-
-                <!-- Bear's arm wrapping around panda -->
+                <ellipse cx="132" cy="132" rx="22" ry="20" fill="#FFFFFF" />
                 <ellipse cx="148" cy="120" rx="6" ry="14" fill="#B07840" transform="rotate(25,148,120)" />
-                <!-- Panda's arm wrapping around bear -->
-                <ellipse cx="92" cy="120" rx="6" ry="14" fill="#2D2D2D" transform="rotate(-25,92,120)" />
-
-                <!-- Bear legs -->
-                <ellipse cx="98" cy="150" rx="8" ry="5" fill="#B07840" />
-                <ellipse cx="115" cy="150" rx="8" ry="5" fill="#B07840" />
-                <!-- Panda legs -->
-                <ellipse cx="125" cy="150" rx="8" ry="5" fill="#2D2D2D" />
-                <ellipse cx="142" cy="150" rx="8" ry="5" fill="#2D2D2D" />
-
-                <!-- Bear head -->
+                <ellipse cx="92" cy="120" rx="6" ry="14" fill="#2A2A38" transform="rotate(-25,92,120)" />
                 <circle cx="108" cy="96" r="21" fill="#C4884C" />
-                <!-- Bear ears -->
                 <circle cx="90" cy="79" r="8" fill="#C4884C" />
-                <circle cx="90" cy="79" r="5" fill="#A0693A" />
                 <circle cx="126" cy="79" r="8" fill="#C4884C" />
-                <circle cx="126" cy="79" r="5" fill="#A0693A" />
-                <!-- Bear closed eyes -->
-                <path d="M 99 93 Q 103 89 107 93" stroke="#2D2D2D" fill="none" stroke-width="2"
-                  stroke-linecap="round" />
-                <path d="M 111 93 Q 115 89 119 93" stroke="#2D2D2D" fill="none" stroke-width="2"
-                  stroke-linecap="round" />
-                <!-- Bear blush -->
-                <circle cx="96" cy="100" r="4" fill="#F4A7B9" opacity="0.5" />
-                <circle cx="120" cy="100" r="4" fill="#F4A7B9" opacity="0.5" />
-                <!-- Bear nose -->
-                <ellipse cx="108" cy="97" rx="3" ry="2" fill="#5D3A1A" />
-                <!-- Bear big smile -->
-                <path d="M 101 102 Q 108 109 115 102" stroke="#5D3A1A" fill="none" stroke-width="1.5"
-                  stroke-linecap="round" />
+                <path d="M 99 93 Q 103 89 107 93" stroke="#2D2D2D" fill="none" stroke-width="2" />
+                <path d="M 111 93 Q 115 89 119 93" stroke="#2D2D2D" fill="none" stroke-width="2" />
 
-                <!-- Panda head (slightly overlapping) -->
-                <circle cx="135" cy="96" r="20" fill="#F5F5F5" />
-                <!-- Panda ears -->
-                <circle cx="119" cy="80" r="8" fill="#2D2D2D" />
-                <circle cx="152" cy="80" r="8" fill="#2D2D2D" />
-                <!-- Panda eye patches -->
-                <ellipse cx="127" cy="93" rx="7" ry="6" fill="#2D2D2D" />
-                <ellipse cx="145" cy="93" rx="7" ry="6" fill="#2D2D2D" />
-                <!-- Panda closed eyes -->
-                <path d="M 123 92 Q 127 88 131 92" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" />
-                <path d="M 141 92 Q 145 88 149 92" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" />
-                <!-- Panda blush -->
-                <circle cx="121" cy="100" r="4" fill="#FFB6C1" opacity="0.5" />
-                <circle cx="150" cy="100" r="4" fill="#FFB6C1" opacity="0.5" />
-                <!-- Panda nose -->
-                <ellipse cx="136" cy="97" rx="2.5" ry="2" fill="#2D2D2D" />
-                <!-- Panda happy smile -->
-                <path d="M 130 101 Q 136 108 142 101" stroke="#555" fill="none" stroke-width="1.5"
-                  stroke-linecap="round" />
+                <circle cx="135" cy="96" r="20" fill="#FFFFFF" />
+                <circle cx="119" cy="80" r="8" fill="#2A2A38" />
+                <circle cx="152" cy="80" r="8" fill="#2A2A38" />
+                <ellipse cx="127" cy="93" rx="7" ry="6" fill="#2A2A38" />
+                <ellipse cx="145" cy="93" rx="7" ry="6" fill="#2A2A38" />
+                <path d="M 123 92 Q 127 88 131 92" stroke="#fff" fill="none" stroke-width="2" />
+                <path d="M 141 92 Q 145 88 149 92" stroke="#fff" fill="none" stroke-width="2" />
               </g>
 
-              <!-- Lots of floating hearts -->
-              <g class="heart-float"><text x="85" y="58" font-size="16" fill="#E8556D" opacity="0.8">♥</text></g>
-              <g class="heart-float" style="animation-delay:0.4s"><text x="145" y="52" font-size="14" fill="#F48FB1"
-                  opacity="0.7">♥</text></g>
-              <g class="heart-float" style="animation-delay:0.8s"><text x="110" y="48" font-size="12" fill="#E8556D"
-                  opacity="0.6">♥</text></g>
-              <g class="heart-float" style="animation-delay:1.2s"><text x="130" y="42" font-size="18" fill="#CE93D8"
-                  opacity="0.5">♥</text></g>
-              <g class="heart-float" style="animation-delay:0.6s"><text x="98" y="44" font-size="10" fill="#FFB6C1"
-                  opacity="0.6">♥</text></g>
-              <g class="heart-float" style="animation-delay:1s"><text x="155" y="62" font-size="9" fill="#F48FB1"
-                  opacity="0.5">♥</text></g>
-
-              <!-- Sparkles -->
-              <text x="75" y="70" font-size="10" class="cover-sparkle" style="animation-delay:0.2s">✨</text>
-              <text x="160" y="68" font-size="10" class="cover-sparkle" style="animation-delay:0.8s">✨</text>
+              <g class="heart-float"><text x="85" y="58" font-size="16" fill="#E8556D">💖</text></g>
+              <g class="petal-float" style="animation-delay:0.4s"><text x="145" y="52" font-size="14"
+                  fill="#F8BBD0">🌸</text></g>
             </svg>
           </div>
 
-          <div class="page-image-slot" id="image-slot-4"></div>
-
           <div class="page-message">
-            <p>nitho chala matladali ra..hyd lo unnapude chala matladali anukunna, i know chala heavu ayindi niku na
-              valla,, matladalekapoya ra, that doesn't mean i did cared about things you overthink.. atleast ippatiki
+            <p>nitho chala matladali ra..hyd lo unnapude chala matladali anukunna, i know chala heavy ayindi niku na
+              valla,, matladalekapoya, that doesn't mean i didn't cared about things you overthink.. atleast ippatiki
               ayina matladkundam neha.. i really dont wanna lose you😕... na side nundi kuda chala confess cheyalani
               undhi... let us please try AGAIN🫂</p>
           </div>
@@ -631,137 +579,40 @@
       </div>
 
       <!-- ================================== -->
-      <!-- PAGE 5 : OUR ADVENTURES            -->
+      <!-- PAGE 8 : THE SECOND CHANCE THEORY  -->
       <!-- ================================== -->
-      <div class="page" data-page="5" id="page-5">
+      <div class="page" data-page="8" id="page-8">
         <div class="page-inner">
           <p class="page-theme-label">THE SECOND CHANCE THEORY 🌿</p>
 
           <div class="page-illustration">
             <svg viewBox="0 0 240 170" xmlns="http://www.w3.org/2000/svg">
-              <!-- Sky -->
-              <!-- Sun -->
-              <g class="sun-pulse">
-                <circle cx="195" cy="30" r="18" fill="#FFD54F" opacity="0.3" />
-                <circle cx="195" cy="30" r="12" fill="#FFD54F" opacity="0.5" />
-                <circle cx="195" cy="30" r="8" fill="#FFE082" />
-              </g>
-              <!-- Cloud -->
-              <g opacity="0.3">
-                <ellipse cx="55" cy="28" rx="20" ry="10" fill="#fff" />
-                <ellipse cx="42" cy="32" rx="14" ry="8" fill="#fff" />
-                <ellipse cx="68" cy="33" rx="16" ry="9" fill="#fff" />
-              </g>
+              <ellipse cx="120" cy="158" rx="110" ry="14" fill="#A5D6A7" opacity="0.5" />
 
-              <!-- Ground -->
-              <ellipse cx="120" cy="158" rx="110" ry="14" fill="#A5D6A7" opacity="0.4" />
-              <ellipse cx="120" cy="160" rx="90" ry="8" fill="rgba(0,0,0,0.05)" />
-
-              <!-- Small flowers on ground -->
-              <g class="flower-sway">
-                <circle cx="40" cy="150" r="3" fill="#F48FB1" opacity="0.6" />
+              <g class="lily-bloom">
+                <circle cx="40" cy="150" r="3.5" fill="#FFFDF0" />
                 <circle cx="40" cy="150" r="1.5" fill="#FFD54F" />
-                <line x1="40" y1="150" x2="40" y2="158" stroke="#66BB6A" stroke-width="1.5" />
-              </g>
-              <g class="flower-sway" style="animation-delay:0.5s">
-                <circle cx="195" cy="148" r="3.5" fill="#CE93D8" opacity="0.6" />
+                <circle cx="195" cy="148" r="4" fill="#F8BBD0" />
                 <circle cx="195" cy="148" r="1.5" fill="#FFD54F" />
-                <line x1="195" y1="148" x2="195" y2="158" stroke="#66BB6A" stroke-width="1.5" />
-              </g>
-              <g class="flower-sway" style="animation-delay:1s">
-                <circle cx="80" cy="152" r="2.5" fill="#64B5F6" opacity="0.6" />
-                <circle cx="80" cy="152" r="1.2" fill="#FFD54F" />
-                <line x1="80" y1="152" x2="80" y2="158" stroke="#66BB6A" stroke-width="1.2" />
-              </g>
-              <g class="flower-sway" style="animation-delay:0.7s">
-                <circle cx="165" cy="153" r="2.5" fill="#FF8A65" opacity="0.6" />
-                <circle cx="165" cy="153" r="1.2" fill="#FFD54F" />
-                <line x1="165" y1="153" x2="165" y2="158" stroke="#66BB6A" stroke-width="1.2" />
               </g>
 
-              <!-- === BEAR (left, walking, holding hands) === -->
               <g class="char-bounce">
-                <!-- Body -->
                 <ellipse cx="100" cy="128" rx="20" ry="18" fill="#C4884C" />
-                <ellipse cx="100" cy="130" rx="13" ry="11" fill="#DEBA8A" />
-                <!-- Left arm (swinging) -->
-                <ellipse cx="82" cy="122" rx="6" ry="11" fill="#B07840" transform="rotate(-20,82,122)" />
-                <!-- Right arm (reaching toward panda for hand hold) -->
-                <ellipse cx="118" cy="118" rx="6" ry="12" fill="#B07840" transform="rotate(30,118,118)" />
-                <!-- Walking legs -->
-                <ellipse cx="91" cy="144" rx="7" ry="5.5" fill="#B07840" transform="rotate(-8,91,144)" />
-                <ellipse cx="109" cy="145" rx="7" ry="5.5" fill="#B07840" transform="rotate(8,109,145)" />
-                <!-- Head (looking at panda) -->
                 <circle cx="100" cy="96" r="20" fill="#C4884C" />
-                <!-- Ears -->
                 <circle cx="84" cy="80" r="8" fill="#C4884C" />
-                <circle cx="84" cy="80" r="5" fill="#A0693A" />
                 <circle cx="116" cy="80" r="8" fill="#C4884C" />
-                <circle cx="116" cy="80" r="5" fill="#A0693A" />
-                <!-- Happy eyes (looking right at panda) -->
-                <circle cx="94" cy="93" r="3" fill="#2D2D2D" />
-                <circle cx="108" cy="93" r="3" fill="#2D2D2D" />
-                <circle cx="95" cy="92" r="1.2" fill="#fff" />
-                <circle cx="109" cy="92" r="1.2" fill="#fff" />
-                <!-- Blush -->
-                <circle cx="89" cy="100" r="4" fill="#F4A7B9" opacity="0.4" />
-                <circle cx="113" cy="100" r="4" fill="#F4A7B9" opacity="0.4" />
-                <!-- Nose -->
-                <ellipse cx="101" cy="97" rx="3" ry="2" fill="#5D3A1A" />
-                <!-- Happy grin -->
-                <path d="M 94 101 Q 101 108 108 101" stroke="#5D3A1A" fill="none" stroke-width="1.5"
-                  stroke-linecap="round" />
+
+                <ellipse cx="148" cy="128" rx="20" ry="18" fill="#FFFFFF" />
+                <circle cx="148" cy="96" r="20" fill="#FFFFFF" />
+                <circle cx="132" cy="80" r="8" fill="#2A2A38" />
+                <circle cx="164" cy="80" r="8" fill="#2A2A38" />
+                <ellipse cx="140" cy="93" rx="7" ry="6" fill="#2A2A38" />
+                <ellipse cx="158" cy="93" rx="7" ry="6" fill="#2A2A38" />
               </g>
 
-              <!-- Hand holding connection -->
-              <line x1="122" y1="114" x2="128" y2="114" stroke="#A0693A" stroke-width="3" stroke-linecap="round"
-                opacity="0.7" />
-
-              <!-- === PANDA (right, walking, holding hands) === -->
-              <g class="char-bounce" style="animation-delay:0.2s">
-                <!-- Body -->
-                <ellipse cx="148" cy="128" rx="20" ry="18" fill="#F0F0F0" />
-                <ellipse cx="148" cy="130" rx="13" ry="11" fill="#E0E0E0" />
-                <!-- Left arm (reaching toward bear) -->
-                <ellipse cx="132" cy="118" rx="6" ry="12" fill="#2D2D2D" transform="rotate(-30,132,118)" />
-                <!-- Right arm (swinging) -->
-                <ellipse cx="166" cy="122" rx="6" ry="11" fill="#2D2D2D" transform="rotate(20,166,122)" />
-                <!-- Walking legs -->
-                <ellipse cx="139" cy="145" rx="7" ry="5.5" fill="#2D2D2D" transform="rotate(-8,139,145)" />
-                <ellipse cx="157" cy="144" rx="7" ry="5.5" fill="#2D2D2D" transform="rotate(8,157,144)" />
-                <!-- Head (looking at bear) -->
-                <circle cx="148" cy="96" r="20" fill="#F5F5F5" />
-                <!-- Ears -->
-                <circle cx="132" cy="80" r="8" fill="#2D2D2D" />
-                <circle cx="164" cy="80" r="8" fill="#2D2D2D" />
-                <!-- Eye patches -->
-                <ellipse cx="140" cy="93" rx="7" ry="6" fill="#2D2D2D" />
-                <ellipse cx="158" cy="93" rx="7" ry="6" fill="#2D2D2D" />
-                <!-- Happy eyes (looking left at bear) -->
-                <circle cx="140" cy="93" r="3" fill="#fff" />
-                <circle cx="157" cy="93" r="3" fill="#fff" />
-                <circle cx="139" cy="92.5" r="1.8" fill="#2D2D2D" />
-                <circle cx="156" cy="92.5" r="1.8" fill="#2D2D2D" />
-                <circle cx="139.5" cy="92" r="0.8" fill="#fff" />
-                <circle cx="156.5" cy="92" r="0.8" fill="#fff" />
-                <!-- Blush -->
-                <circle cx="134" cy="100" r="4" fill="#FFB6C1" opacity="0.4" />
-                <circle cx="163" cy="100" r="4" fill="#FFB6C1" opacity="0.4" />
-                <!-- Nose -->
-                <ellipse cx="149" cy="97" rx="2.5" ry="2" fill="#2D2D2D" />
-                <!-- Happy grin -->
-                <path d="M 143 101 Q 149 108 155 101" stroke="#555" fill="none" stroke-width="1.5"
-                  stroke-linecap="round" />
-              </g>
-
-              <!-- Tiny music notes -->
-              <text x="88" y="72" font-size="10" fill="#66BB6A" opacity="0.5" class="heart-float">♪</text>
-              <text x="158" y="68" font-size="12" fill="#66BB6A" opacity="0.4" class="heart-float"
-                style="animation-delay:0.6s">♫</text>
+              <line x1="120" y1="120" x2="128" y2="120" stroke="#A0693A" stroke-width="3.5" stroke-linecap="round" />
             </svg>
           </div>
-
-          <div class="page-image-slot" id="image-slot-5"></div>
 
           <div class="page-message">
             <p>neha.. we have experienced a lot through these years.. mana first times like confession kani or major
@@ -777,137 +628,172 @@
       </div>
 
       <!-- ================================== -->
-      <!-- PAGE 6 : IT ALWAYS BEGINS AGAIN    -->
+      <!-- PAGE 9 : IT ALWAYS BEGINS AGAIN    -->
       <!-- ================================== -->
-      <div class="page" data-page="6" id="page-6">
+      <div class="page" data-page="9" id="page-9">
         <div class="page-inner">
-          <p class="page-theme-label">It Always Begins Again... 💛</p>
+          <p class="page-theme-label">Beginning Again With You 🌸💛</p>
 
           <div class="page-illustration">
             <svg viewBox="0 0 240 170" xmlns="http://www.w3.org/2000/svg">
               <ellipse cx="120" cy="158" rx="80" ry="7" fill="rgba(0,0,0,0.05)" />
 
-              <!-- Circular arrows / infinity concept -->
-              <g opacity="0.15">
-                <path d="M 120 25 
-                  C 160 25, 190 50, 190 75 
-                  C 190 100, 160 120, 120 120 
-                  C 80 120, 50 100, 50 75 
-                  C 50 50, 80 25, 120 25" fill="none" stroke="#F57F17" stroke-width="2" stroke-dasharray="8 4"
-                  class="infinity-spin" />
-              </g>
-
-              <!-- Heart shape made by both together -->
-              <g class="heart-float">
-                <path d="M 120 55 
-                  C 120 45, 108 35, 100 40 
-                  C 90 46, 90 58, 120 78 
-                  C 150 58, 150 46, 140 40 
-                  C 132 35, 120 45, 120 55 Z" fill="#E8556D" opacity="0.15" />
-              </g>
-
-              <!-- === BEAR (left, forming heart with arms) === -->
               <g class="char-bounce">
-                <!-- Body -->
                 <ellipse cx="100" cy="130" rx="20" ry="18" fill="#C4884C" />
-                <ellipse cx="100" cy="132" rx="13" ry="11" fill="#DEBA8A" />
-                <!-- Left arm (down) -->
-                <ellipse cx="82" cy="125" rx="6" ry="11" fill="#B07840" transform="rotate(-10,82,125)" />
-                <!-- Right arm (reaching up to form heart) -->
-                <ellipse cx="117" cy="105" rx="6" ry="14" fill="#B07840" transform="rotate(40,117,105)" />
-                <!-- Legs -->
-                <ellipse cx="90" cy="146" rx="7" ry="5" fill="#B07840" />
-                <ellipse cx="110" cy="146" rx="7" ry="5" fill="#B07840" />
-                <!-- Head -->
                 <circle cx="100" cy="98" r="20" fill="#C4884C" />
-                <!-- Ears -->
-                <circle cx="84" cy="82" r="8" fill="#C4884C" />
-                <circle cx="84" cy="82" r="5" fill="#A0693A" />
-                <circle cx="116" cy="82" r="8" fill="#C4884C" />
-                <circle cx="116" cy="82" r="5" fill="#A0693A" />
-                <!-- Starry eyes -->
-                <circle cx="93" cy="95" r="3.5" fill="#2D2D2D" />
-                <circle cx="107" cy="95" r="3.5" fill="#2D2D2D" />
-                <circle cx="92" cy="93.5" r="1.5" fill="#fff" />
-                <circle cx="106" cy="93.5" r="1.5" fill="#fff" />
-                <circle cx="94.5" cy="95.5" r="0.7" fill="#fff" />
-                <circle cx="108.5" cy="95.5" r="0.7" fill="#fff" />
-                <!-- Blush -->
-                <circle cx="87" cy="102" r="5" fill="#F4A7B9" opacity="0.5" />
-                <circle cx="113" cy="102" r="5" fill="#F4A7B9" opacity="0.5" />
-                <!-- Nose -->
-                <ellipse cx="100" cy="99" rx="3" ry="2" fill="#5D3A1A" />
-                <!-- Big happy smile -->
-                <path d="M 93 103 Q 100 112 107 103" stroke="#5D3A1A" fill="none" stroke-width="1.8"
-                  stroke-linecap="round" />
+                <ellipse cx="140" cy="130" rx="20" ry="18" fill="#FFFFFF" />
+                <circle cx="140" cy="98" r="20" fill="#FFFFFF" />
+                <circle cx="124" cy="82" r="8" fill="#2A2A38" />
+                <circle cx="156" cy="82" r="8" fill="#2A2A38" />
               </g>
 
-              <!-- Arms joining to form heart at top -->
-              <path d="M 121 96 Q 125 85 120 80 Q 115 85 119 96" fill="#B07840" opacity="0.6" />
-
-              <!-- === PANDA (right, forming heart with arms) === -->
-              <g class="char-bounce" style="animation-delay:0.2s">
-                <!-- Body -->
-                <ellipse cx="140" cy="130" rx="20" ry="18" fill="#F0F0F0" />
-                <ellipse cx="140" cy="132" rx="13" ry="11" fill="#E0E0E0" />
-                <!-- Left arm (reaching up to form heart) -->
-                <ellipse cx="123" cy="105" rx="6" ry="14" fill="#2D2D2D" transform="rotate(-40,123,105)" />
-                <!-- Right arm (down) -->
-                <ellipse cx="158" cy="125" rx="6" ry="11" fill="#2D2D2D" transform="rotate(10,158,125)" />
-                <!-- Legs -->
-                <ellipse cx="130" cy="146" rx="7" ry="5" fill="#2D2D2D" />
-                <ellipse cx="150" cy="146" rx="7" ry="5" fill="#2D2D2D" />
-                <!-- Head -->
-                <circle cx="140" cy="98" r="20" fill="#F5F5F5" />
-                <!-- Ears -->
-                <circle cx="124" cy="82" r="8" fill="#2D2D2D" />
-                <circle cx="156" cy="82" r="8" fill="#2D2D2D" />
-                <!-- Eye patches -->
-                <ellipse cx="132" cy="95" rx="7" ry="6" fill="#2D2D2D" />
-                <ellipse cx="150" cy="95" rx="7" ry="6" fill="#2D2D2D" />
-                <!-- Starry eyes -->
-                <circle cx="132" cy="95" r="3.5" fill="#fff" />
-                <circle cx="150" cy="95" r="3.5" fill="#fff" />
-                <circle cx="131" cy="93.5" r="1.8" fill="#2D2D2D" />
-                <circle cx="149" cy="93.5" r="1.8" fill="#2D2D2D" />
-                <circle cx="131.5" cy="93" r="0.8" fill="#fff" />
-                <circle cx="149.5" cy="93" r="0.8" fill="#fff" />
-                <circle cx="133" cy="95.5" r="0.5" fill="#fff" />
-                <circle cx="151" cy="95.5" r="0.5" fill="#fff" />
-                <!-- Blush -->
-                <circle cx="126" cy="102" r="5" fill="#FFB6C1" opacity="0.5" />
-                <circle cx="155" cy="102" r="5" fill="#FFB6C1" opacity="0.5" />
-                <!-- Nose -->
-                <ellipse cx="141" cy="99" rx="2.5" ry="2" fill="#2D2D2D" />
-                <!-- Big happy smile -->
-                <path d="M 134 103 Q 141 112 148 103" stroke="#555" fill="none" stroke-width="1.8"
-                  stroke-linecap="round" />
-              </g>
-
-              <!-- Sparkles and stars all around -->
-              <text x="60" y="60" font-size="12" class="cover-sparkle" style="animation-delay:0s">✨</text>
-              <text x="170" y="55" font-size="12" class="cover-sparkle" style="animation-delay:0.5s">🌟</text>
-              <text x="50" y="90" font-size="10" class="cover-sparkle" style="animation-delay:1s">💫</text>
-              <text x="185" y="85" font-size="10" class="cover-sparkle" style="animation-delay:1.5s">⭐</text>
-              <text x="75" y="45" font-size="9" class="cover-sparkle" style="animation-delay:0.3s">✨</text>
-              <text x="160" y="40" font-size="9" class="cover-sparkle" style="animation-delay:0.8s">💫</text>
-
-              <!-- Hearts -->
-              <g class="heart-float"><text x="110" y="35" font-size="14" fill="#E8556D" opacity="0.6">♥</text></g>
-              <g class="heart-float" style="animation-delay:0.5s"><text x="125" y="30" font-size="11" fill="#F48FB1"
-                  opacity="0.5">♥</text></g>
-              <g class="heart-float" style="animation-delay:1s"><text x="115" y="25" font-size="16" fill="#FFB6C1"
-                  opacity="0.4">♥</text></g>
+              <path d="M 120 75 Q 100 55 120 40 Q 140 55 120 75 Z" fill="none" stroke="#E91E63" stroke-width="2.5"
+                class="heart-float" />
+              <text x="113" y="52" font-size="12">🌸</text>
             </svg>
           </div>
 
-          <div class="page-image-slot" id="image-slot-6"></div>
-
           <div class="page-message">
-            <p>And just like our story... it will always begin again and again, forever and ever 💕</p>
+            <p>Mana journey lo enno Ups & Downs undochu, but prathi sari nitho thirigi kothaga start cheyadam naku chala
+              ishtam Neha... 💛✨</p>
           </div>
 
-          <p class="restart-hint">💕 Tap right to begin again 💕</p>
+          <div class="page-deco page-deco-tl"></div>
+          <div class="page-deco page-deco-br"></div>
+        </div>
+      </div>
+
+      <!-- ================================== -->
+      <!-- PAGE 10 : DREAMY MEMORIES          -->
+      <!-- ================================== -->
+      <div class="page" data-page="10" id="page-10">
+        <div class="page-inner">
+          <p class="page-theme-label dark-theme-text">Dreaming of You Always 💭✨</p>
+
+          <div class="page-illustration">
+            <svg viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+              <g class="moon-float">
+                <ellipse cx="120" cy="140" rx="60" ry="20" fill="#FFFFFF" opacity="0.9" />
+                <ellipse cx="90" cy="130" rx="30" ry="25" fill="#FFFFFF" opacity="0.9" />
+                <ellipse cx="145" cy="130" rx="35" ry="22" fill="#FFFFFF" opacity="0.9" />
+              </g>
+
+              <g class="char-sway" transform="translate(0, 10)">
+                <ellipse cx="120" cy="115" rx="22" ry="15" fill="#FFFFFF" />
+                <circle cx="102" cy="110" r="16" fill="#FFFFFF" />
+                <circle cx="92" cy="98" r="6" fill="#2A2A38" />
+                <circle cx="112" cy="98" r="6" fill="#2A2A38" />
+                <path d="M 96 110 Q 100 106 104 110" stroke="#2A2A38" fill="none" stroke-width="2" />
+                <circle cx="98" cy="114" r="3" fill="#FF9EAA" opacity="0.7" />
+              </g>
+
+              <circle cx="145" cy="90" r="6" fill="#E1BEE7" opacity="0.8" class="petal-float" />
+              <circle cx="160" cy="70" r="10" fill="#CE93D8" opacity="0.8" class="petal-float"
+                style="animation-delay:0.4s" />
+              <g class="lantern-rise" transform="translate(145, 20)">
+                <ellipse cx="30" cy="20" rx="28" ry="18" fill="#FFFDF0" />
+                <text x="18" y="24" font-size="16">🌸💖</text>
+              </g>
+            </svg>
+          </div>
+
+          <div class="page-message dark-card-message">
+            <p>Nu leni prathi kshanam oka kalala untundhi Neha... Every memory with you is etched in my heart forever.
+              You are the prettiest dream I ever had, and the sweetest reality I want to live forever! 💭🌸</p>
+          </div>
+
+          <div class="page-deco page-deco-tl"></div>
+          <div class="page-deco page-deco-br"></div>
+        </div>
+      </div>
+
+      <!-- ================================== -->
+      <!-- PAGE 11 : REASONS WHY              -->
+      <!-- ================================== -->
+      <div class="page" data-page="11" id="page-11">
+        <div class="page-inner">
+          <p class="page-theme-label">Why You Are My Everything 💖</p>
+
+          <div class="page-illustration">
+            <svg viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="120" cy="162" rx="90" ry="7" fill="rgba(0,0,0,0.06)" />
+
+              <g class="char-bounce">
+                <ellipse cx="120" cy="130" rx="24" ry="20" fill="#FFFFFF" />
+                <circle cx="120" cy="94" r="22" fill="#FFFFFF" />
+                <circle cx="98" cy="76" r="9" fill="#2A2A38" />
+                <circle cx="142" cy="76" r="9" fill="#2A2A38" />
+                <ellipse cx="110" cy="92" rx="7" ry="6" fill="#2A2A38" />
+                <ellipse cx="130" cy="92" rx="7" ry="6" fill="#2A2A38" />
+                <circle cx="110" cy="92" r="2.5" fill="#fff" />
+                <circle cx="130" cy="92" r="2.5" fill="#fff" />
+                <circle cx="104" cy="100" r="4.5" fill="#FF9EAA" opacity="0.6" />
+                <circle cx="136" cy="100" r="4.5" fill="#FF9EAA" opacity="0.6" />
+                <path d="M 112 101 Q 120 108 128 101" stroke="#555" fill="none" stroke-width="1.6" />
+
+                <g class="interactive-tap">
+                  <path d="M 120 110 C 95 80, 75 120, 120 148 C 165 120, 145 80, 120 110 Z" fill="#FF4081"
+                    opacity="0.9" />
+                  <text x="110" y="128" font-size="18">🌸</text>
+                </g>
+              </g>
+
+              <text x="45" y="65" font-size="14" class="petal-float">✨ Pure Heart</text>
+              <text x="155" y="65" font-size="14" class="petal-float" style="animation-delay:0.5s">💖 Sweetest
+                Smile</text>
+            </svg>
+          </div>
+
+          <div class="page-message">
+            <p>Why Neha? Because your heart is pure, your smile heals my soul, and your love gives my life meaning. Nu
+              na prapancham Neha! No matter where life takes us, my heart will always choose you over and over again!
+              💖🌸</p>
+          </div>
+
+          <p class="interactive-tap-hint interactive-tap">💖 Tap heart to bloom love! 💖</p>
+
+          <div class="page-deco page-deco-tl"></div>
+          <div class="page-deco page-deco-br"></div>
+        </div>
+      </div>
+
+      <!-- ================================== -->
+      <!-- PAGE 12 : GRAND FINALE             -->
+      <!-- ================================== -->
+      <div class="page" data-page="12" id="page-12">
+        <div class="page-inner">
+          <p class="page-theme-label shimmer-text">Happy Birthday My Forever Love! 🎂🎆</p>
+
+          <div class="page-illustration">
+            <svg viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+              <g class="crown-sparkle">
+                <circle cx="50" cy="40" r="15" fill="none" stroke="#FFD54F" stroke-width="1.5" stroke-dasharray="3 3" />
+                <circle cx="190" cy="45" r="18" fill="none" stroke="#E91E63" stroke-width="1.5"
+                  stroke-dasharray="3 3" />
+              </g>
+
+              <g class="char-bounce">
+                <ellipse cx="80" cy="130" rx="20" ry="18" fill="#C4884C" />
+                <circle cx="80" cy="98" r="20" fill="#C4884C" />
+                <polygon points="80,75 73,85 87,85" fill="#FFD54F" />
+
+                <ellipse cx="160" cy="130" rx="20" ry="18" fill="#FFFFFF" />
+                <circle cx="160" cy="98" r="20" fill="#FFFFFF" />
+                <circle cx="144" cy="82" r="8" fill="#2A2A38" />
+                <circle cx="176" cy="82" r="8" fill="#2A2A38" />
+                <polygon points="160,75 153,85 167,85" fill="#E91E63" />
+              </g>
+
+              <text x="120" y="55" font-size="22" text-anchor="middle" class="heart-float">👑 🎉 🌸</text>
+            </svg>
+          </div>
+
+          <div class="page-message">
+            <p>Happy Birthday once again my dearest Neha! 🎉🌸 May your day be filled with unlimited joy, smiles, and
+              love. I love you more than words can ever describe. Always & Forever Yours! 💕👑</p>
+          </div>
+
+          <p class="interactive-tap-hint interactive-tap">💕 Tap right to begin again 💕</p>
 
           <div class="page-deco page-deco-tl"></div>
           <div class="page-deco page-deco-br"></div>
