@@ -333,24 +333,76 @@
     setTimeout(() => el.remove(), 850);
   }
 
-  // ---------- Web Audio API Romantic Music Synth ----------
+  // ---------- Audio Player (Custom MP3 + Web Audio Synth Fallback) ----------
+  const bgAudio = document.getElementById('bgAudio');
+  const audioFileInput = document.getElementById('audioFileInput');
+  let useMp3 = false;
+
   function initMusicSynth() {
     if (!musicBtn) return;
+
+    // Handle custom MP3 file upload
+    if (audioFileInput) {
+      audioFileInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          const fileUrl = URL.createObjectURL(file);
+          bgAudio.src = fileUrl;
+          useMp3 = true;
+          startMusic();
+        }
+      });
+    }
+
+    // Double click button to open custom file picker
+    musicBtn.addEventListener('dblclick', (e) => {
+      e.stopPropagation();
+      if (audioFileInput) audioFileInput.click();
+    });
 
     musicBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       if (!isMusicPlaying) {
+        startMusic();
+      } else {
+        stopMusic();
+      }
+    });
+  }
+
+  function startMusic() {
+    // Attempt MP3 playback first
+    if (bgAudio && bgAudio.src) {
+      bgAudio.play().then(() => {
+        useMp3 = true;
+        musicBtn.classList.add('playing');
+        musicBtn.querySelector('.btn-text').textContent = 'Music: ON 🎵';
+        isMusicPlaying = true;
+      }).catch(() => {
+        // Fallback to Web Audio synth if MP3 fails
+        useMp3 = false;
         startRomanticMelody();
         musicBtn.classList.add('playing');
         musicBtn.querySelector('.btn-text').textContent = 'Music: ON 🎵';
         isMusicPlaying = true;
-      } else {
-        stopRomanticMelody();
-        musicBtn.classList.remove('playing');
-        musicBtn.querySelector('.btn-text').textContent = 'Play Music 🎶';
-        isMusicPlaying = false;
-      }
-    });
+      });
+    } else {
+      useMp3 = false;
+      startRomanticMelody();
+      musicBtn.classList.add('playing');
+      musicBtn.querySelector('.btn-text').textContent = 'Music: ON 🎵';
+      isMusicPlaying = true;
+    }
+  }
+
+  function stopMusic() {
+    if (useMp3 && bgAudio) {
+      bgAudio.pause();
+    }
+    stopRomanticMelody();
+    musicBtn.classList.remove('playing');
+    musicBtn.querySelector('.btn-text').textContent = 'Play Music 🎶';
+    isMusicPlaying = false;
   }
 
   function playSoftChime(freq = 523.25) {

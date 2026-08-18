@@ -17,10 +17,12 @@
 <body>
 
   <!-- Audio Toggle Button -->
-  <button id="musicToggleBtn" class="music-toggle-btn" aria-label="Toggle Romantic Music">
+  <button id="musicToggleBtn" class="music-toggle-btn" aria-label="Toggle Romantic Music" title="Click to play music. Double-click to choose your custom MP3 song!">
     <span class="music-icon">🎵</span>
     <span class="btn-text">Play Music 🎶</span>
   </button>
+  <audio id="bgAudio" src="music.mp3" loop preload="auto"></audio>
+  <input type="file" id="audioFileInput" accept="audio/*" style="display:none;" />
 
   <!-- 3D Particle Canvas Background -->
   <canvas id="bg-particles-canvas"></canvas>
